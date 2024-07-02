@@ -63,6 +63,7 @@ public with sharing class SlackFileUploadController2 {
     //     }
     // }
 
+    //Request to slack  for upload file 
     @AuraEnabled
     public static String getUploadUrl(String filename, Integer length) {
         String endpoint = 'https://slack.com/api/files.getUploadURLExternal';
@@ -96,6 +97,7 @@ public with sharing class SlackFileUploadController2 {
         }
     }
 
+    //Salesforce upload file to slack
     @AuraEnabled
     public static void uploadFileToSlack(String uploadUrl, String fileBase64, String filename) {
         HttpRequest req = new HttpRequest();
